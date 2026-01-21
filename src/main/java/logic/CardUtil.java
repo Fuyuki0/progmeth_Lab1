@@ -68,7 +68,7 @@ public class CardUtil {
 			cardsFromFile.add(new UnitCard(first, second, third, forth, fifth));
 		}
 
-		return null;
+		return cardsFromFile;
 	}
 
 	public static void printCardList(ArrayList<UnitCard> cardList, boolean verbose) {
