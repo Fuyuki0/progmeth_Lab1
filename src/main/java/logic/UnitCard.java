@@ -18,6 +18,26 @@ public class UnitCard {
 		this.flavorText = flavorText;
 	}
 
+	public void setName(String name) {
+		if (name.isBlank()) name = "Creature";
+	}
+
+	public void setBloodCost(int bloodCost) {
+		if (bloodCost <= 0) bloodCost = 0;
+	}
+
+	public void setPower(int power) {
+		if (power <= 0) power = 0;
+	}
+
+	public void setHealth(int health) {
+		if (health <= 1) health = 1;
+	}
+
+	public boolean equals(UnitCard other) {
+		return this.name.equals(other.name);
+	}
+
 	public String getName() {
 		return name;
 	}
