@@ -34,7 +34,7 @@ javafx {
 }
 
 application {
-    mainClass = 'game.DeckManager' // path to your main class
+        mainClass = 'game.DeckManager' // path to your main class
 }
 
 run {

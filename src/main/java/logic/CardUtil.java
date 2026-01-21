@@ -1,5 +1,6 @@
 package logic;
 
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
@@ -8,22 +9,19 @@ import java.io.FileNotFoundException;
 public class CardUtil {
 	
 	public static boolean isExistsInList(UnitCard card, ArrayList<UnitCard> list) {
-		
-		//TODO: Fill Code
+		for (UnitCard c : list) if (card.getFlavorText().equals(c.getFlavorText())) return true;
 		return false;
-
 	}
 	
 	public static boolean isExistsInList(UnitDeck deck, ArrayList<UnitDeck> list) {
-		
-		//TODO: Fill Code
+		for (UnitDeck d : list) if (deck.getDeckName().equals(d.getDeckName())) return true;
 		return false;
-
 	}
 	
 	public static boolean cardExistsInDeckList(ArrayList<UnitDeck> deckList, UnitCard cardToTest) {
-		
-		//TODO: Fill Code
+		for (UnitDeck d : deckList) for (CardCounter c : d.getCardsInDeck()) {
+			if (cardToTest.getName().equals(c.getCard().getFlavorText())) return true;
+		};
 		return false;
 	}
 	
@@ -31,16 +29,45 @@ public class CardUtil {
 		
 		ArrayList<UnitCard> cardsFromFile = new ArrayList<UnitCard>();
 		InputStream inputStream = CardUtil.class.getClassLoader().getResourceAsStream(filename);
-          	if (inputStream == null) {
-                	System.out.println("Cannot find file!");
-                	return null;
-            	}
+		if (inputStream == null) {
+				System.out.println("Cannot find file!");
+				return null;
+		}
 
-            	Scanner myReader = new Scanner(inputStream);
+		Scanner myReader = new Scanner(inputStream);
+		while (myReader.hasNextLine()) {
+			String data = myReader.nextLine();
+			String[] dataParts = data.split(",");
 
+			String first = "";
+			int second = 0;
+			int third = 0;
+			int forth = 0;
+			String fifth = "";
 
-		//TODO: Fill Code below
-		
+			for (int i = 0; i < dataParts.length; i++) {
+
+				switch (i) {
+					case 0 -> {
+						first = dataParts[i].strip();
+					}
+					case 1 -> {
+						second = Integer.parseInt(dataParts[i]);
+					}
+					case 2 -> {
+						third = Integer.parseInt(dataParts[i]);
+					}
+					case 3 -> {
+						forth = Integer.parseInt(dataParts[i]);
+					}
+					case 4 -> {
+						fifth = dataParts[i].strip();
+					}
+				}
+			}
+			cardsFromFile.add(new UnitCard(first, second, third, forth, fifth));
+		}
+
 		return null;
 	}
 

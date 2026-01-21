@@ -9,6 +9,11 @@ public class UnitDeck {
 
     public UnitDeck(String deckName) {
         this.deckName = deckName;
+        this.cardsInDeck = new ArrayList<>();
+    }
+
+    public ArrayList<CardCounter> getCardsInDeck() {
+        return cardsInDeck;
     }
 
     public void addCard(UnitCard newCard, int cardAmount) {

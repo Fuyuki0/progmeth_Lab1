@@ -49,4 +49,12 @@ public class UnitCard {
 	public int getHealth() {
 		return health;
 	}
+
+	public int getBloodCost() {
+		return bloodCost;
+	}
+
+	public String getFlavorText() {
+		return flavorText;
+	}
 }
