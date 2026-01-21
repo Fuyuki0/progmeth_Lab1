@@ -15,7 +15,6 @@ public class UnitCard {
 		this.name = name;
 		this.bloodCost = bloodCost;
 		this.power = power;
-		this.health = health;
 		this.flavorText = flavorText;
 	}
 

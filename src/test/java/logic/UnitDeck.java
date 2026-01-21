@@ -30,9 +30,7 @@ public class UnitDeck {
     }
 
     public int cardCount() {
-        int count = 0;
-        for (CardCounter d : cardsInDeck) count += d.getCount();
-        return count;
+        return cardsInDeck.size();
     }
 
     public boolean existsInDeck(UnitCard card) {
